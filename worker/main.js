@@ -25,7 +25,7 @@ const register = () =>
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ url: 'worker', id }),
+    body: JSON.stringify({ url: 'worker', id,mult:process.env.MULT }),
   })
 let mult = false
 let add = false
