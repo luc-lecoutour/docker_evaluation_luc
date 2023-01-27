@@ -16,6 +16,16 @@ dans cette exercice, j'ai ajouté :
 ................................................................
 exo 3 - 4 et 5 non détaillé : 
 
+Environments variables worker
+```
+MULT=true
+ADD=true
+PORT=8080
+PLANNER=http://planner:3000
+ADDRESS=worker
+WORKTYPE=
+```
+
 ## Démarrer le serveur
 ```bash
 npm start # dans le dossier worker
