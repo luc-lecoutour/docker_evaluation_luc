@@ -58,13 +58,13 @@ const sendTask = async (worker, task) => {
   tasks = tasks.filter((t) => t !== task);
 
 
-  if(!worker.worktype){
+  if(worker.worktype==='all'){
     //generalist
     console.log(`${worker.url}/${task.type}`);
   }
   else{
     if(task.type != worker.worktype){
-      console.log('wrong task continue...')
+      console.log('wrong task continue...', worker.url)
       task = tasks.find(t => t.type===worker.worktype)
       console.log('task : ',task)
     }
