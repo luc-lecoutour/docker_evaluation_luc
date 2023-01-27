@@ -57,8 +57,6 @@ const sendTask = async (worker, task) => {
 
   tasks = tasks.filter((t) => t !== task);
 
-  //console.log('task before sending request', tasks)
-
 
   if(!worker.worktype){
     //generalist
@@ -67,12 +65,10 @@ const sendTask = async (worker, task) => {
   else{
     if(task.type != worker.worktype){
       console.log('wrong task continue...')
-      return;
+      task = tasks.find(t => t.type===worker.worktype)
+      console.log('task : ',task)
     }
   }
-
-
-
 
 
   const request = fetch(`${worker.url}/${task.type}`, {
@@ -90,10 +86,10 @@ const sendTask = async (worker, task) => {
     })
     .then((res) => {
       taskToDo -= 1
-      /*console.log('---')
+      console.log('---')
       console.log(nbTasks - taskToDo, '/', nbTasks, ':')
       console.log(task, 'has res', res)
-      console.log('---')*/
+      console.log('---')
       return res
     })
     .catch((err) => {
