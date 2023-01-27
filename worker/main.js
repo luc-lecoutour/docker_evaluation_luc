@@ -9,8 +9,8 @@ const PLANNER =
     ? process.env.PLANNER
     : 'http://localhost:3000'
 const MULT =
-  process.env.MULT !== undefined ? parseBoolean(process.env.MULT) : true
-const ADD = process.env.ADD !== undefined ? parseBoolean(process.env.ADD) : true
+  process.env.MULT !== undefined ? new Boolean(process.env.MULT) : true
+const ADD = process.env.ADD !== undefined ? new Boolean(process.env.ADD) : true
 const app = express()
 const port = process.env.PORT || 8080
 const ADDRESS =
@@ -86,6 +86,6 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  // register()
+  register();
   console.log(`Worker ${id} listening at http://localhost:${port}`)
 })
